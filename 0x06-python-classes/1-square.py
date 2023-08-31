@@ -3,15 +3,7 @@
 
 
 class Square:
-    """"
-    Still a  Square
-    Attributes:
-        __size (int): size of the Square
-    """
+    """"Still a  Square"""
     def __init__(self, size):
-        """Initializes a square
-        Args:
-            size (int): size of square
-        Returns: None
-        """
+        """Initializes a square"""
         self.__size = size
