@@ -6,8 +6,6 @@ def safe_print_list(args, x):
             print("{:d}".format(args[i]), end="")
         except (ValueError, TypeError):
             continue
-        except IndexError:
-            break
         num += 1
-    print("")
+    print()
     return num
