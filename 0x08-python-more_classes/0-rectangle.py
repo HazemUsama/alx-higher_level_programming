@@ -2,4 +2,4 @@
 
 class Rectangle(object):
     """docstring for Rectangle."""
-    pass 
+    pass
