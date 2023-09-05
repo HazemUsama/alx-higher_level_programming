@@ -15,6 +15,7 @@ class Square:
 
     @property
     def size(self):
+        """ Size Getter """
         return self.__size
 
     @size.setter
@@ -29,6 +30,7 @@ class Square:
 
     @property
     def position(self):
+        """ Position Getter """
         return self.__position
 
     @position.setter
@@ -40,6 +42,7 @@ class Square:
             __position = value
 
     def my_print(self):
+        """ Print squares """
         if self.__size == 0:
             print()
             return
