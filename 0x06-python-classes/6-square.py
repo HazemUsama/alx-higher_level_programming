@@ -6,8 +6,8 @@ class Square:
     """"Still a  Square"""
     def __init__(self, size=0, position=(0, 0)):
         """Initializes a square"""
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         """ Retrun the size of the square """
@@ -61,3 +61,9 @@ class Square:
             [print(" ", end="") for j in range(self.__position[0])]
             [print("#", end="") for k in range(self.__size)]
             print()
+
+
+mysquare = Square(3, "Position")
+print(mysquare.size)
+print(mysquare.area())
+print(mysquare.position)
