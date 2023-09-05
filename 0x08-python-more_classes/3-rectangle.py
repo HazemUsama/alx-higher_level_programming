@@ -56,4 +56,3 @@ class Rectangle:
         rect_str *= self.__height - 1
         rect_str += "#" * self.__width
         return rect_str
-
