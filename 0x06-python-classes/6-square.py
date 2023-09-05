@@ -6,8 +6,8 @@ class Square:
     """"Still a  Square"""
     def __init__(self, size=0, position=(0, 0)):
         """Initializes a square"""
-        __size = __size
-        __position = position
+        self.__size = size
+        self.__position = position
 
     def area(self):
         """ Retrun the size of the square """
@@ -24,13 +24,13 @@ class Square:
         Args:
             value: the new value of size
         """
-    if isinstance(value, int):
-        if value < 0:
-            raise ValueError('size must be >= 0')
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError('size must be >= 0')
+            else:
+                self.__size = value
         else:
-            self.__size = value
-    else:
-        raise TypeError('size must be an integer')
+            raise TypeError('size must be an integer')
 
     @property
     def position(self):
@@ -43,8 +43,9 @@ class Square:
         Args:
             value: the new value of position
         """
-        if not isinstance(value[0], int) or
-        not isinstance(value[1], int) or len(value) != 2:
+        if (not isinstance(value, tuple) or len(value) != 2 or
+                not isinstance(value[0], int) or not isinstance(value[1], int) or
+                value[0] < 0 or value[1] < 0):
             raise TypeError('position must be a tuple of 2 positive integers')
         else:
             __position = value
@@ -54,9 +55,24 @@ class Square:
         if self.__size == 0:
             print()
             return
-        [print() for i in range(__position[1])]
+        [print() for i in range(self.__position[1])]
         for i in range(self.__size):
-            for j in range(self.__size):
-                [print(" ", end="") for k in range(__position[0])]
-                print("#", end="")
+            [print(" ", end="") for j in range(self.__position[0])]
+            [print("#", end="") for k in range(self.__size)]
             print()
+
+
+my_square_1 = Square(3)
+my_square_1.my_print()
+
+print("--")
+
+my_square_2 = Square(3, (1, 1))
+my_square_2.my_print()
+
+print("--")
+
+my_square_3 = Square(3, (3, 0))
+my_square_3.my_print()
+
+print("--")
