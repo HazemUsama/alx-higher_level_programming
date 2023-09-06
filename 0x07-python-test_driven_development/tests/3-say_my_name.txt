@@ -1,9 +1,9 @@
-# The ``2-matrix_divided`` module
+# The ``3-say_my_name`` module
 
 Only one function ''add_integer()''
 
 Import the function from the module:
-	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
 
 Check Style:
 	>>> import pycodestyle
@@ -13,7 +13,7 @@ Create a StyleGuide instance:
 	>>> style_guide = pycodestyle.StyleGuide()
 
 Define the files or directories you want to check:
-	>>> files_to_check = ['2-matrix_divided.py']
+	>>> files_to_check = ['3-say_my_name.py']
 
 Check the style of the specified files:
 	>>> result = style_guide.check_files(files_to_check)
@@ -22,15 +22,6 @@ Check the results:
 	>>> result.total_errors
 	0
 
-Checking for module docstring:
-	>>> module_doc = __import__("2-matrix_divided").__doc__
-	>>> len(module_doc) > 1
-	True
-
 Check simple use:
-	>>> a = [[1, 2], [3, 4]] 
-	>>> matrix_divided(a, 2)
-	[[0.5, 1.0], [1.5, 2.0]]
-	>>> a
-	[[1, 2], [3, 4]]
-	
+	>>> say_my_name("Hazem", "Osama")
+	My name is Hazem Osama
