@@ -42,3 +42,10 @@ Check for simple use:
 	Traceback (most recent call last):
 	...
 	TypeError: text must be a string
+
+	Passing an empty string as text.
+	>>> text_indentation("")
+
+	Passing a text with space at the beginning.
+	>>> text_indentation("        Hello Hazem")
+	Hello Hazem
