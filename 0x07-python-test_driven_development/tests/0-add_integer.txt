@@ -1,0 +1,33 @@
+# The ``0-add_integer`` module
+
+Only one function ''add_integer()''
+
+Import the function from the module:
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Check for simple use:
+	>>> add_integer(1)
+	99
+	>>> add_integer(2, 3)
+	5
+	>>> add_integer(-2, 3)
+	1
+
+Check for float:
+	>>> add_integer(2.5)
+	100
+	>>> add_integer(3.99, 4)
+	7
+
+Check for non integer:
+	>>> add_integer("Hello")
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+	>>> a = [1, 2]
+	>>> b = [3, 4]
+	>>> add_integer(a, b)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
