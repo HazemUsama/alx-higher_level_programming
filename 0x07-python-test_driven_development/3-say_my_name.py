@@ -3,6 +3,7 @@
 
 
 def say_my_name(first_name, last_name=""):
+    """Return a string contains the first and last name"""
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
 
