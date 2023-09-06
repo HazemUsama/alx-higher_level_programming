@@ -9,6 +9,10 @@ class LockedClass:
     Attributes:
         first_name (str): first name
     """
+     def __init__(self):
+        """Creates new instances of Locked Class."""
+        self.first_name = "first_name"
+
     def __setattr__(self, name, value):
         """
         Checks the attribute if it's valid
