@@ -9,7 +9,7 @@ class LockedClass:
     Attributes:
         first_name (str): first name
     """
-     def __init__(self):
+    def __init__(self):
         """Creates new instances of Locked Class."""
         self.first_name = "first_name"
 
