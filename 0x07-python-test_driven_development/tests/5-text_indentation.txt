@@ -36,7 +36,7 @@ Check for simple use:
 	>>> text_indentation("hello? world")
 	hello?
 	<BLANKLINE>
-	 world
+	world
 	
 	>>> text_indentation(123)
 	Traceback (most recent call last):
