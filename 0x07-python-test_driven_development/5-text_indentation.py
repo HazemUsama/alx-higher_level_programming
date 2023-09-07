@@ -7,12 +7,14 @@ def text_indentation(text):
 
     if not isinstance(text, str):
         raise TypeError('text must be a string')
-    line = ""
+    line = None
     for ch in text:
+        if line is None:
+            line = ""
         line += ch
         if ch in '.:?':
             print(line.strip())
             print()
-            line = ""
-    if line != "":
+            line = None
+    if line is not None:
         print(line.strip())
