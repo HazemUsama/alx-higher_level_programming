@@ -33,6 +33,9 @@ Checking for function docstring:
 	True
 
 Check for simple use:
+	>>> text_indentation("Holberton School")
+	Holberton School
+
 	>>> text_indentation("hello? world")
 	hello?
 	<BLANKLINE>
@@ -44,8 +47,17 @@ Check for simple use:
 	TypeError: text must be a string
 
 	Passing an empty string as text.
-	>>> text_indentation("")
+	>>> text_indentation("  ")
 
 	Passing a text with space at the beginning.
 	>>> text_indentation("        Hello Hazem")
 	Hello Hazem
+	
+	>>> text_indentation('Holberton. School? How are you: John')
+	Holberton.
+	<BLANKLINE>
+	School?
+	<BLANKLINE>
+	How are you:
+	<BLANKLINE>
+	John
