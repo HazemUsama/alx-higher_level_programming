@@ -7,7 +7,7 @@ max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
     """
-    Class to test maxt_integer
+    Class to test max_integer
     """
 
     def test_positive(self):
@@ -56,8 +56,22 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_list_but_not_integer(self):
         """
-        Test when not all items are integer
+        Test when not all elemets are integers
         """
         lis1 = [1, 2, 'hello']
         with self.assertRaises(TypeError):
             max_integer(lis1)
+
+    def test_one_elm(self):
+        """
+        Test when one element only exist
+        """
+        lis = [1]
+        self.assertEqual(max_integer(lis), 1)
+
+    def test_middle(self):
+        """
+        Test if the max element is in the middle
+        """
+        lis = [1, 3, 2]
+        self.assertEqual(max_integer(lis), 3)
