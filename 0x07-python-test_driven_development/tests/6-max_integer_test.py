@@ -1,0 +1,65 @@
+#!/usr/bin/python3
+"""Unittest for max_integer([..])
+"""
+import unittest
+max_integer = __import__('6-max_integer').max_integer
+
+
+class TestMaxInteger(unittest.TestCase):
+    """
+    Class to test maxt_integer
+    """
+
+    def test_positive(self):
+        """
+        Test positive integer
+        """
+        lis = [1, 2, 3, 4]
+        self.assertEqual(max_integer(lis), 4)
+
+    def test_negative(self):
+        """
+        Test negative integer
+        """
+        lis = [-1, -2, -3, -4]
+        self.assertEqual(max_integer(lis), -1)
+
+        # with zero
+        lis += [0]
+        self.assertEqual(max_integer(lis), 0)
+
+    def test_empty(self):
+        """
+        Test empty list
+        """
+        lis = []
+        self.assertIsNone(max_integer(lis))
+
+    def test_none(self):
+        """
+        Test None
+        """
+        lis = None
+        with self.assertRaise(TypeError):
+            max_integer(None)
+
+    def test_wrongType(self):
+        """
+        Test Wrong Type
+        """
+        lis1 = "hazem"
+        lis2 = 123
+
+        with self.assertRaise(TypeError):
+            max_integer(lis1)
+
+        with self.assertRaise(TypeError):
+            max_integer(lis2)
+
+    def test_list_but_not_integer(self):
+        """
+        Test when not all items are integer
+        """
+        lis1 = [1, 2, 'hello']
+        with self.assertRaise(TypeError):
+            max_integer(lis1)
