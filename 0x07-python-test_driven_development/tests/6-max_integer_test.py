@@ -40,20 +40,18 @@ class TestMaxInteger(unittest.TestCase):
         Test None
         """
         lis = None
-        with self.assertRaise(TypeError):
+        with self.assertRaises(TypeError):
             max_integer(None)
 
     def test_wrongType(self):
         """
         Test Wrong Type
         """
-        lis1 = "hazem"
+        lis1 = ["hazem", "osama"]
         lis2 = 123
 
-        with self.assertRaise(TypeError):
-            max_integer(lis1)
-
-        with self.assertRaise(TypeError):
+        self.assertEqual(max_integer(lis1), "osama")
+        with self.assertRaises(TypeError):
             max_integer(lis2)
 
     def test_list_but_not_integer(self):
@@ -61,5 +59,5 @@ class TestMaxInteger(unittest.TestCase):
         Test when not all items are integer
         """
         lis1 = [1, 2, 'hello']
-        with self.assertRaise(TypeError):
+        with self.assertRaises(TypeError):
             max_integer(lis1)
