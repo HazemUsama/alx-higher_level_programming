@@ -1,0 +1,44 @@
+# The ``1-my_list`` module
+
+
+Import the class from the module:
+	>>> MyList = __import__('1-my_list').MyList
+
+Check Style:
+	>>> import pycodestyle
+	>>> import sys
+
+Create a StyleGuide instance:
+	>>> style_guide = pycodestyle.StyleGuide()
+
+Define the files or directories you want to check:
+	>>> files_to_check = ['1-my_list.py']
+
+Check the style of the specified files:
+	>>> result = style_guide.check_files(files_to_check)
+
+Check the results:
+	>>> result.total_errors
+	0
+
+Checking for module docstring:
+	>>> module_doc = __import__("1-my_list").__doc__
+	>>> len(module_doc) > 1
+	True
+
+Checking for class docstring:
+	>>> function_doc = __import__("1-my_list").MyList.__doc__
+	>>> len(function_doc) > 1
+	True
+
+Check for simple use:
+	>>> my_list = MyList()
+	>>> my_list.append(2)
+	>>> my_list.append(1)
+	>>> my_list.print_sorted()
+	[1, 2]
+
+check for negative numbers
+	>>> my_list.append(-2)
+	>>> my_list.print_sorted()
+	[-2, 1, 2]
