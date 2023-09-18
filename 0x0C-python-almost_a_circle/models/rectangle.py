@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Rectangle Class Model"""
-Base = __import__('base').Base
-
+from models.base import Base
 
 def safeSet(self, name, value):
     """
