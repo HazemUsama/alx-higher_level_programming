@@ -3,11 +3,27 @@
 Base = __import__('base').Base
 
 
+def safeSet(self, name, value):
+    """
+    Check for type and value before assigning
+    """
+    if isinstance(value, int):
+        if value < 0:
+            raise ValueError('{} must be >= 0'.format(name))
+        else:
+            self.__width = value
+    else:
+        raise TypeError('{} must be an integer'.format(name))
+
+
 class Rectangle(Base):
     """
     Define the Class
     """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """
+        Initializes attributes
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -36,40 +52,20 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        if isinstance(value, int):
-            if value < 0:
-                raise ValueError('width must be >= 0')
-            else:
-                self.__width = value
-        else:
-            raise TypeError('width must be an integer')
+        """Sets the value for width"""
+        safeSet(self, 'width', value)
 
     @height.setter
     def height(self, value):
-        if isinstance(value, int):
-            if value < 0:
-                raise ValueError('height must be >= 0')
-            else:
-                self.__width = value
-        else:
-            raise TypeError('height must be an integer')
+        """Sets the value for height"""
+        safeSet(self, 'height', value)
 
     @x.setter
     def x(self, value):
-        if isinstance(value, int):
-            if value < 0:
-                raise ValueError('x must be >= 0')
-            else:
-                self.__width = value
-        else:
-            raise TypeError('x must be an integer')
+        """Sets the value for x"""
+        safeSet(self, 'x', value)
 
     @y.setter
     def y(self, value):
-        if isinstance(value, int):
-            if value < 0:
-                raise ValueError('y must be >= 0')
-            else:
-                self.__width = value
-        else:
-            raise TypeError('y must be an integer')
+        """Sets the value for y"""
+        safeSet(self, 'y', value)
