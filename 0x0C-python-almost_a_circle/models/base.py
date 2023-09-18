@@ -38,7 +38,7 @@ class Base:
         filename = '{}.json'.format(cls.__name__)
         with open(filename, 'w', encoding="utf-8") as f:
             f.write(cls.to_json_string(json_dictionary))
-    
+
     @staticmethod
     def from_json_string(json_string):
         """
