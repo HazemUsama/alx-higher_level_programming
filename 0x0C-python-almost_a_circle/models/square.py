@@ -16,10 +16,10 @@ class Square(Rectangle):
         return f'[Square] ({self.id}) {self.x}/{self.y} - \
 {self.width}'
 
-    @@property
+    @property
     def size(self):
         """The size property."""
-        return self.__size
+        return self._Rectangle__width
 
     @size.setter
     def size(self, value):
