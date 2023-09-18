@@ -3,19 +3,6 @@
 Base = __import__('base').Base
 
 
-def safeSet(self, name, value):
-    """
-    Check for type and value before assigning
-    """
-    if isinstance(value, int):
-        if value < 0:
-            raise ValueError('{} must be >= 0'.format(name))
-        else:
-            self.__width = value
-    else:
-        raise TypeError('{} must be an integer'.format(name))
-
-
 class Rectangle(Base):
     """
     Define the Class
@@ -49,16 +36,40 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        safeSet(self, 'width', value)
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError('width must be >= 0')
+            else:
+                self.__width = value
+        else:
+            raise TypeError('width must be an integer')
 
     @height.setter
     def height(self, value):
-        safeSet(self, 'height', value)
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError('height must be >= 0')
+            else:
+                self.__width = value
+        else:
+            raise TypeError('height must be an integer')
 
     @x.setter
     def x(self, value):
-        safeSet(self, 'x', value)
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError('x must be >= 0')
+            else:
+                self.__width = value
+        else:
+            raise TypeError('x must be an integer')
 
     @y.setter
     def y(self, value):
-        safeSet(self, 'y', value)
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError('y must be >= 0')
+            else:
+                self.__width = value
+        else:
+            raise TypeError('y must be an integer')
