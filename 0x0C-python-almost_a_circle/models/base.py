@@ -3,6 +3,7 @@
 import json
 import os
 
+
 class Base:
     """
     Define the Class
@@ -56,7 +57,7 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
-    
+
     @classmethod
     def load_from_file(cls):
         filename = f'{cls.__name__}.json'
@@ -69,5 +70,3 @@ class Base:
                 for dic in dictionary:
                     instances.append(cls.create(**dic))
         return instances
-
-
