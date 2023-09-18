@@ -9,9 +9,6 @@ class Rectangle(Base):
     Define the Class
     """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """
-        Initializes attributes
-        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -40,20 +37,41 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """Sets the value for width"""
-        super().safeSet('width', value)
+        if isinstance(value, int):
+            if value <= 0:
+                raise ValueError('width must be > 0')
+            else:
+                self.__width = value
+        else:
+            raise TypeError('width must be an integer')
 
     @height.setter
     def height(self, value):
-        """Sets the value for height"""
-        super().safeSet('height', value)
+        if isinstance(value, int):
+            if value <= 0:
+                raise ValueError('height must be > 0')
+            else:
+                self.__width = value
+        else:
+            raise TypeError('height must be an integer')
 
     @x.setter
     def x(self, value):
-        """Sets the value for x"""
-        super().safeSet('x', value)
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError('x must be >= 0')
+            else:
+                self.__width = value
+        else:
+            raise TypeError('x must be an integer')
 
     @y.setter
     def y(self, value):
-        """Sets the value for y"""
-        super().safeSet('y', value)
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError('y must be >= 0')
+            else:
+                self.__width = value
+        else:
+            raise TypeError('y must be an integer')
+

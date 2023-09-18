@@ -14,15 +14,3 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
-
-    def safeSet(self, name, value):
-        """
-        Check for type and value before assigning
-        """
-        if isinstance(value, int):
-            if value <= 0:
-                raise ValueError('{} must be > 0'.format(name))
-            else:
-                self.__width = value
-        else:
-            raise TypeError('{} must be an integer'.format(name))
