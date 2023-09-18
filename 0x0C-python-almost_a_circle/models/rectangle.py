@@ -93,7 +93,7 @@ class Rectangle(Base):
         """
         Update attributes
         """
-        if args is not None:
+        if len(args) != 0:
             if len(args) >= 1:
                 self.id = args[0]
             if len(args) >= 2:
@@ -105,6 +105,6 @@ class Rectangle(Base):
             if len(args) >= 5:
                 self.__y = args[4]
         else:
-            for key, value in kwargs:
+            for (key, value) in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
