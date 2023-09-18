@@ -20,8 +20,8 @@ class Base:
         Check for type and value before assigning
         """
         if isinstance(value, int):
-            if value < 0:
-                raise ValueError('{} must be >= 0'.format(name))
+            if value <= 0:
+                raise ValueError('{} must be > 0'.format(name))
             else:
                 self.__width = value
         else:
