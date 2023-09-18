@@ -3,18 +3,6 @@
 
 from models.base import Base
 
-def safeSet(self, name, value):
-    """
-    Check for type and value before assigning
-    """
-    if isinstance(value, int):
-        if value < 0:
-            raise ValueError('{} must be >= 0'.format(name))
-        else:
-            self.__width = value
-    else:
-        raise TypeError('{} must be an integer'.format(name))
-
 
 class Rectangle(Base):
     """
@@ -53,19 +41,19 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Sets the value for width"""
-        safeSet(self, 'width', value)
+        super().safeSet('width', value)
 
     @height.setter
     def height(self, value):
         """Sets the value for height"""
-        safeSet(self, 'height', value)
+        super().safeSet('height', value)
 
     @x.setter
     def x(self, value):
         """Sets the value for x"""
-        safeSet(self, 'x', value)
+        super().safeSet('x', value)
 
     @y.setter
     def y(self, value):
         """Sets the value for y"""
-        safeSet(self, 'y', value)
+        super().safeSet('y', value)
