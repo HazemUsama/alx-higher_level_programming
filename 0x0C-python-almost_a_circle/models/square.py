@@ -3,6 +3,7 @@
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """
     Define the Class
@@ -14,5 +15,3 @@ class Square(Rectangle):
         """Override the str functoin"""
         return f'[Square] ({self.id}) {self.x}/{self.y} - \
 {self.width}'
-
-
