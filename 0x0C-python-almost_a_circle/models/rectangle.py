@@ -2,15 +2,16 @@
 """Rectangle Class Model"""
 Base = __import__('base').Base
 
+
 def safeSet(self, name, value):
     """
     Check for type and value before assigning
     """
     if isinstance(value, int):
-            if value < 0:
-                raise ValueError('{} must be >= 0'.format(name))
-            else:
-                self.__width = value
+        if value < 0:
+            raise ValueError('{} must be >= 0'.format(name))
+        else:
+            self.__width = value
     else:
         raise TypeError('{} must be an integer'.format(name))
 
