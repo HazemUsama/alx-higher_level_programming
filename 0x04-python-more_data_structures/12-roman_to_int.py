@@ -10,7 +10,7 @@ def roman_to_int(roman_string):
             if roman[roman_string[idx]] < roman[roman_string[idx + 1]]:
                 ans -= roman[char]
                 continue
-        except:
+        except IndexError:
             pass
         ans += roman[char]
     return ans
