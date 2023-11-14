@@ -3,7 +3,7 @@
 exports.esrever = function (list) {
   const newList = [];
   list.forEach(element => {
-    newList.push(element);
+    newList.unshift(element);
   });
   return newList;
 };
