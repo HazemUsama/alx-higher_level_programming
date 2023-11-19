@@ -8,7 +8,8 @@ if __name__ == '__main__':
     UserPass = sys.argv[2]
     DataBaseName = sys.argv[3]
 
-    conn = MySQLdb.connect(host="localhost", port=3306, user=UserName, passwd=UserPass, db=DataBaseName);
+    conn = MySQLdb.connect(host="localhost", port=3306,
+            user=UserName, passwd=UserPass, db=DataBaseName)
     cur = conn.cursor()
     cur.execute("SELECT * FROM states ORDER BY id ASC")
     query_rows = cur.fetchall()
