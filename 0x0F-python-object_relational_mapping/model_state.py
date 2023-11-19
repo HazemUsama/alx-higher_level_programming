@@ -15,4 +15,3 @@ class State(Base):
     __tablename__ = 'states'
     id = Column('id', Integer, primary_key=True, nullable=False)
     name = Column('name', VARCHAR(128), nullable=False)
-
