@@ -19,9 +19,8 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    results = session.query(State).filter(State.name == stateName).all()
-    if results == []:
+    result = session.query(State).filter(State.name == stateName).first()
+    if result is None:
         print('Not found')
     else:
-        for row in results:
-            print("{}".format(row.id))
+        print("{}".format(result.id))
