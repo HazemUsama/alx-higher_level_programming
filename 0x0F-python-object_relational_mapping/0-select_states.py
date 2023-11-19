@@ -1,39 +1,12 @@
 #!/usr/bin/python3
-from sqlalchemy import create_engine, Column, Integer, String, Sequence
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+import MySQLdb
 
-# Replace these values with your MySQL connection details
-DB_USER = 'root'
-DB_PASSWORD = 'root'
-DB_HOST = 'localhost'
-DB_PORT = '3306'
-DB_NAME = 'my_db'
-
-# Create a SQLAlchemy engine
-engine = create_engine(f'mysql+mysqldb://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}', pool_pre_ping=True)
-
-
-# Declare a base for declarative class definitions
-Base = declarative_base()
-
-# Define your State class
-class State(Base):
-    __tablename__ = 'states'
-    id = Column(Integer, Sequence('state_id_seq'), primary_key=True)
-    name = Column(String(256), nullable=False)
-
-# Create the table
-Base.metadata.create_all(engine)
-
-# Create a session
-Session = sessionmaker(bind=engine)
-session = Session()
-
-# Perform the query
-for state in session.query(State).order_by(State.id).all():
-    print("{}: {}".format(state.id, state.name))
-
-# Close the session
-session.close()
-
+DataBaseName = 'hbtn_0e_0_usa'
+conn = MySQLdb.connect(host="localhost", port=3306, user="root", passwd="root", db=DataBaseName);
+cur = conn.cursor()
+cur.execute("SELECT * FROM states ORDER BY id ASC") # HERE I have to know SQL to grab all states in my database
+query_rows = cur.fetchall()
+for row in query_rows:
+    print(row)
+cur.close()
+conn.close()
