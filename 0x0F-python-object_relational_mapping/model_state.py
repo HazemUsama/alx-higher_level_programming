@@ -13,5 +13,5 @@ class State(Base):
     Create the Class State
     """
     __tablename__ = 'states'
-    id = Column('id', Integer, primary_key=True, nullable=False)
+    id = Column('id', Integer, primary_key=True)
     name = Column('name', VARCHAR(128), nullable=False)
