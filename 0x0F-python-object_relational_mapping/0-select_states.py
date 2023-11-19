@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 import MySQLdb
+import sys
 
-DataBaseName = 'hbtn_0e_0_usa'
-conn = MySQLdb.connect(host="localhost", port=3306, user="root", passwd="root", db=DataBaseName);
+UserName = sys.argv[1]
+UserPass = sys.argv[2]
+DataBaseName = sys.argv[3]
+
+conn = MySQLdb.connect(host="localhost", port=3306, user=UserName, passwd=UserPass, db=DataBaseName);
 cur = conn.cursor()
-cur.execute("SELECT * FROM states ORDER BY id ASC") # HERE I have to know SQL to grab all states in my database
+cur.execute("SELECT * FROM states ORDER BY id ASC")
 query_rows = cur.fetchall()
 for row in query_rows:
     print(row)
