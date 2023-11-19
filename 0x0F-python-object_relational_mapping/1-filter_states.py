@@ -7,15 +7,13 @@ if __name__ == '__main__':
     import MySQLdb
     import sys
 
-    UserName = sys.argv[1]
-    UserPass = sys.argv[2]
-    DataBaseName = sys.argv[3]
+    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
 
-    conn = MySQLdb.connect(host="localhost", port=3306, user=UserName,
-                           passwd=UserPass, db=DataBaseName)
+    conn = MySQLdb.connect(host="localhost", port=3306, user=username,
+                           passwd=password, db=database)
     cur = conn.cursor()
     cur.execute("""SELECT * FROM states
-                WHERE states.name like 'N%'
+                WHERE name LIKE 'N%'
                 ORDER BY id ASC""")
     query_rows = cur.fetchall()
     for row in query_rows:
