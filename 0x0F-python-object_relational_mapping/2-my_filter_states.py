@@ -9,14 +9,12 @@ import sys
 
 if __name__ == '__main__':
 
-    username, password, database, name = sys.argv[1], sys.argv[2], sys.argv[3]
+    username, password, database, name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
 
     conn = MySQLdb.connect(host="localhost", port=3306, user=username,
                            passwd=password, db=database)
     cur = conn.cursor()
-    cur.execute(f"""SELECT * FROM states
-                WHERE name == %s
-                ORDER BY id ASC""" % name)
+    cur.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC", (name, ))
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)
