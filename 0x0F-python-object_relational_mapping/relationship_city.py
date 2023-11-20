@@ -2,12 +2,8 @@
 """
 The class definition of a City
 """
-from sqlalchemy import create_engine, ForeignKey,\
-        Column, String, Integer, VARCHAR
-from model_state import Base, State
-from sqlalchemy.orm import declarative_base
-
-Base = declarative_base()
+from relationship_state import Base, State
+from sqlalchemy import Column, Integer, VARCHAR, ForeignKey
 
 
 class City(Base):
@@ -17,7 +13,5 @@ class City(Base):
     __tablename__ = 'cities'
     id = Column('id', Integer, primary_key=True)
     name = Column('name', VARCHAR(128), nullable=False)
-    state_id = Column('state_id', Integer,
-                      ForeignKey('State.id'), nullable=False)
-    states = relationship('State', back_populates='cities')
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
 

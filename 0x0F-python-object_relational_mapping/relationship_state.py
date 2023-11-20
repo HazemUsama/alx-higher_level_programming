@@ -2,8 +2,8 @@
 """
 The class definition of a State
 """
-from sqlalchemy import create_engine, Column, String, Integer, VARCHAR
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy import Column, VARCHAR, Integer
+from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
@@ -13,6 +13,7 @@ class State(Base):
     Create the Class State
     """
     __tablename__ = 'states'
-    id = Column('id', Integer, primary_key=True)
-    name = Column('name', VARCHAR(128), nullable=False)
-    cities = relationship('City', back_populates='states')
+
+    id = Column(Integer, primary_key=True)
+    name = Column(VARCHAR(128), nullable=False)
+    cities = relationship("City", backref="state", cascade="all, delete")
