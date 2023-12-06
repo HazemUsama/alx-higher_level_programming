@@ -10,7 +10,6 @@ if __name__ == '__main__':
     except:
         par = {'q': ""}
 
-    print(par)
     r = requests.post('http://0.0.0.0:5000/search_user', data=par)
     try:
         res = r.json()
