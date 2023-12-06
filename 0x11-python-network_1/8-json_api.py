@@ -10,7 +10,7 @@ if __name__ == '__main__':
     except:
         par = ""
 
-    res = requests.post('http://httpbin.org/post', params=par).json()
+    res = requests.post('http://0.0.0.0:5000/search_user', params=par).json()
     if not isinstance(res, dict):
         print('Not a valid JSON')
     elif res == {}:
