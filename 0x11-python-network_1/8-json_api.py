@@ -10,7 +10,7 @@ if __name__ == '__main__':
     except:
         par = ""
 
-    r = requests.post('http://0.0.0.0:5000/search_user', params=par)
+    r = requests.post('http://0.0.0.0:5000/search_user', data=par)
     try:
         res = r.json()
         if res == {}:
