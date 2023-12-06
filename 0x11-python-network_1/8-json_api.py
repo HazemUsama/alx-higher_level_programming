@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
     try:
         par = {'q': sys.argv[1]}
-    except:
+    except IndexError:
         par = {'q': ""}
 
     r = requests.post('http://0.0.0.0:5000/search_user', data=par)
@@ -17,5 +17,5 @@ if __name__ == '__main__':
             print('No result')
         else:
             print('[{}] {}'.format(res.get('id'), res.get('name')))
-    except:
+    except TypeError:
         print('Not a valid JSON')
